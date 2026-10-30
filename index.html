@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div>
+                <h1>Smart Calendar</h1>
+                <p>Manage your days, events and reminders.</p>
+            </div>
+
+            <div class="clock-card">
+                <span class="clock-label">Current Time</span>
+                <div id="clock">00:00:00</div>
+                <div id="today-date"></div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="calendar-card">
+                <div class="calendar-header">
+                    <button id="prev-month" aria-label="Previous month">
+                        &#10094;
+                    </button>
+
+                    <h2 id="month-year"></h2>
+
+                    <button id="next-month" aria-label="Next month">
+                        &#10095;
+                    </button>
+                </div>
+
+                <div class="calendar-legend">
+                    <span><i class="today-dot"></i> Today</span>
+                    <span><i class="event-dot"></i> Has reminder</span>
+                </div>
+
+                <div class="calendar-grid" id="calendar">
+                    <div class="day-name">Sun</div>
+                    <div class="day-name">Mon</div>
+                    <div class="day-name">Tue</div>
+                    <div class="day-name">Wed</div>
+                    <div class="day-name">Thu</div>
+                    <div class="day-name">Fri</div>
+                    <div class="day-name">Sat</div>
+                </div>
+
+                <p class="instruction">
+                    Click a date to view reminders. Double-click a date
+                    to add a new reminder.
+                </p>
+            </section>
+
+            <aside class="events-card">
+                <h2>Events & Reminders</h2>
+                <h3 id="selected-date">Select a date</h3>
+
+                <div id="event-list">
+                    <p class="empty-message">
+                        Select a calendar date to view its reminders.
+                    </p>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <p>Smart Calendar Project | HTML, CSS and JavaScript</p>
+        </footer>
+    </div>
+
+    <!-- Add Reminder Modal -->
+    <div class="modal" id="event-modal">
+        <div class="modal-content">
+            <button class="close-button" id="close-modal"
+                aria-label="Close">&times;</button>
+
+            <h2>Add New Reminder</h2>
+            <p id="modal-date"></p>
+
+            <form id="event-form">
+                <label for="event-title">Reminder Title</label>
+                <input
+                    type="text"
+                    id="event-title"
+                    placeholder="Enter reminder title"
+                    maxlength="80"
+                    required
+                >
+
+                <label for="event-description">Description</label>
+                <textarea
+                    id="event-description"
+                    placeholder="Enter reminder details"
+                    rows="4"
+                    maxlength="300"
+                ></textarea>
+
+                <label for="event-time">Time</label>
+                <input type="time" id="event-time">
+
+                <button type="submit" class="save-button">
+                    Save Reminder
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
